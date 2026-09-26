@@ -21,6 +21,12 @@ class ActionResult(BaseModel):
     entry: dict[str, Any] | None = None
 
 
+class PilotPageResult(PageResult[dict]):
+    """引航作业分页结果：额外带出超期待指派总数，供页面顶部催办角标使用。"""
+
+    overdue_total: int = 0
+
+
 class EntryPayload(BaseModel):
     """登记或修改一条业务记录时提交的字段集合。"""
 
